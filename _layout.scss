@@ -1,0 +1,91 @@
+/* SASS definitions
+--------------------------------------------------------------------*/
+ 
+$line: $vertSpace * 1em / $baseSize; /* default height of one line, in ems */
+
+$column: 40px * 1em / $baseSize; /* 16 column 960px grid */
+$alley:  10px * 1em / $baseSize;
+$gutter: 20px * 1em / $baseSize;
+
+/* SASS mixins for determining font-size, line-height, etc. for elements based on desired text height,
+argument should be in units of pixels */
+@mixin fontSize ($size) {
+    font-size: $size * 1px * 1em / $baseSize;
+}    
+
+@function line ($height, $size) {
+    @return $height * $vertSpace * 1em / ($size * 1px);
+}
+
+@mixin lineHeight ($height, $size) {
+    line-height: line($height, $size);
+}
+
+@mixin topMargins ($height, $size) {
+    margin-top: line($height, $size);
+}
+
+@mixin botMargins ($height, $size) {
+    margin-bottom: line($height, $size);
+}
+
+@mixin baselineMargins ($size) {
+    @include topMargins(1, $size);
+    @include botMargins(1, $size);
+}
+
+@mixin topPadding ($height, $size) {
+    padding-top: line($height, $size);
+}
+
+@mixin botPadding ($height, $size) {
+    padding-bottom: line($height, $size);
+}
+
+@mixin baselinePadding ($size) {
+    @include topPadding(1, $size);
+    @include botPadding(1, $size);
+}
+
+@mixin baseline ($size) {    
+    @include fontSize($size);
+    @if ($size > $vertSpace) {
+	@include lineHeight(2, $size);
+    }
+    @else {
+	@include lineHeight(1, $size);
+    }
+}
+
+@mixin size ($size) {
+    font-size: #{$size * 1px * 1em / $baseSize};    
+}
+
+@mixin clearFix {
+    &:after {
+	content: ".";
+	display: block;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+    }
+}
+
+@function widthOfCols($cols) {
+    @if($cols == 0) {
+	@return 0;
+    }
+    @else {
+	@return ($cols * $column) + ($cols - 1) * $gutter;
+    }
+}
+
+@function widthOfColsSize($cols, $size) {
+    @if($cols == 0) {
+	@return 0;
+    }
+    @else {
+	@return ((($cols * $column) + (($cols - 1) * $gutter)) * $baseSize) / ($size * 1px);
+    }
+}
+

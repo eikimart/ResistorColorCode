@@ -1,0 +1,172 @@
+/* SASS definitions
+--------------------------------------------------------------------*/
+@import "_colors";
+$vertSpace: 24px; /*vertical rhythm spacing, in pixels*/
+$baseSize:  14px; /*base font size, in pixels*/
+@import "_layout";
+@import "_reset";
+
+/* Fundamental Styles
+--------------------------------------------------------------------*/
+html {
+    background: $colBG;
+    margin: 0; padding: 0;
+    line-height: 0;
+}
+
+body {
+    background: $colBG;
+    color: $colText;
+    font-size: #{$baseSize * 100% / 16px};
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    margin: 0; padding: 0;
+    line-height: $vertSpace;
+}
+
+html>body { 
+    font-size: $baseSize;
+}
+
+p, ul {
+    @include baseline(14);
+    @include baselineMargins(14);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: $colText;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h1 {
+    @include baseline(48);
+    @include baselineMargins(48);
+}
+
+h2 {
+    @include baseline(36);
+    line-height: 1.3333333em;
+    @include baselineMargins(36);
+}
+
+h3 {
+    @include baseline(24);
+    @include baselineMargins(24);
+}
+
+h4 {
+    @include baseline(21);
+    @include baselineMargins(21);
+}    
+
+em { 
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+hr { 
+    height: $line;
+    border: 0;
+    background: url(/images/hr-rule.png);
+}
+
+ul, ol {
+    list-style: outside;
+}
+
+ul { 
+    padding-left: $alley;
+    list-style: square outside;
+}
+
+ol {
+    list-style: decimal inside;
+}
+
+li {
+    padding: 0;
+    margin-left: $alley;
+}
+
+table { 
+    line-height: $line;
+}
+
+
+a:link {
+    color: $colLinkBlue;
+    text-decoration: none;
+}
+
+a:visited { 
+    color: $colUsedLink;
+    text-decoration: none;
+}
+
+a:hover { 
+    text-decoration: underline;
+}
+
+a:focus {
+    text-decoration: underline;
+}
+
+a:active { 
+    text-decoration: none;
+}
+
+form {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+}
+
+.formlist {
+    list-style: none;
+    padding: 0;
+    li {
+	margin: 0;
+	line-height: 0;
+    }
+}
+
+input, select { 
+    padding: 5px 9px 5px 9px;
+    margin: 0;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    @include baseline(14);
+    @include botMargins(0.5, 14);
+    width: widthOfCols(4);
+    border-radius: 3px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input, select { 
+    background: none #FFF;
+    border: solid 1px #FFF;
+}
+
+label {
+    padding: 0;
+    @include lineHeight(1, 14);
+    display: block;
+}    
+
+.button { 
+    color: #FFF;        
+    background-color: $colLinkBlue;
+    border-color: $colLinkBlue;
+    @include topMargins(1, 14);
+    padding-left: 0; padding-right: 0;
+    width: widthOfCols(3);
+}

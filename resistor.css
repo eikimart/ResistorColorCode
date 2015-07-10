@@ -1,0 +1,205 @@
+/* SASS definitions
+--------------------------------------------------------------------*/
+/*vertical rhythm spacing, in pixels*/
+/*base font size, in pixels*/
+/* SASS definitions
+--------------------------------------------------------------------*/
+/* default height of one line, in ems */
+/* 16 column 960px grid */
+/* SASS mixins for determining font-size, line-height, etc. for elements based on desired text height,
+argument should be in units of pixels */
+/* Reset Styles - Eric Meyer's Reset Reloaded 
+--------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline; }
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0; }
+
+body {
+  line-height: 1;
+  color: black;
+  background: #FFF; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: ""; }
+
+blockquote, q {
+  quotes: "" ""; }
+
+/* Fundamental Styles
+--------------------------------------------------------------------*/
+html {
+  background: #F7F7F7;
+  margin: 0;
+  padding: 0;
+  line-height: 0; }
+
+body {
+  background: #F7F7F7;
+  color: #202020;
+  font-size: 87.5%;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  line-height: 24px; }
+
+html > body {
+  font-size: 14px; }
+
+p, ul {
+  font-size: 1em;
+  line-height: 1.71429em;
+  margin-top: 1.71429em;
+  margin-bottom: 1.71429em; }
+
+h1, h2, h3, h4 {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #202020;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center; }
+
+h1 {
+  font-size: 3.42857em;
+  line-height: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+
+h2 {
+  font-size: 2.57143em;
+  line-height: 1.33333em;
+  line-height: 1.3333333em;
+  margin-top: 0.66667em;
+  margin-bottom: 0.66667em; }
+
+h3 {
+  font-size: 1.71429em;
+  line-height: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+h4 {
+  font-size: 1.5em;
+  line-height: 1.14286em;
+  margin-top: 1.14286em;
+  margin-bottom: 1.14286em; }
+
+em {
+  font-style: italic; }
+
+strong {
+  font-weight: bold; }
+
+hr {
+  height: 1.71429em;
+  border: 0;
+  background: url(/images/hr-rule.png); }
+
+ul, ol {
+  list-style: outside; }
+
+ul {
+  padding-left: 0.71429em;
+  list-style: square outside; }
+
+ol {
+  list-style: decimal inside; }
+
+li {
+  padding: 0;
+  margin-left: 0.71429em; }
+
+table {
+  line-height: 1.71429em; }
+
+a:link {
+  color: #2458B2;
+  text-decoration: none; }
+
+a:visited {
+  color: #869BBF;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+a:focus {
+  text-decoration: underline; }
+
+a:active {
+  text-decoration: none; }
+
+form {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em; }
+
+.formlist {
+  list-style: none;
+  padding: 0; }
+  .formlist li {
+    margin: 0;
+    line-height: 0; }
+
+input, select {
+  padding: 5px 9px 5px 9px;
+  margin: 0;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.71429em;
+  margin-bottom: 0.85714em;
+  width: 15.71429em;
+  border-radius: 3px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+input, select {
+  background: none #FFF;
+  border: solid 1px #FFF; }
+
+label {
+  padding: 0;
+  line-height: 1.71429em;
+  display: block; }
+
+.button {
+  color: #FFF;
+  background-color: #2458B2;
+  border-color: #2458B2;
+  margin-top: 1.71429em;
+  padding-left: 0;
+  padding-right: 0;
+  width: 11.42857em; }
+
+/*# sourceMappingURL=resistor.css.map */
