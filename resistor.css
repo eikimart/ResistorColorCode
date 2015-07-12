@@ -171,6 +171,7 @@ form {
     line-height: 0; }
 
 input, select {
+  color: #202020;
   padding: 5px 9px 5px 9px;
   margin: 0;
   font-family: 'Roboto Slab', serif;
@@ -182,16 +183,20 @@ input, select {
   border-radius: 3px;
   display: block;
   margin-left: auto;
-  margin-right: auto; }
-
-input, select {
+  margin-right: auto;
   background: none #FFF;
   border: solid 1px #FFF; }
 
 label {
   padding: 0;
   line-height: 1.71429em;
-  display: block; }
+  display: block;
+  width: 15.71429em;
+  margin-left: auto;
+  margin-right: auto; }
+
+label:after {
+  content: ":"; }
 
 .button {
   color: #FFF;

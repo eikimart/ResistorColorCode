@@ -27,3 +27,20 @@ colors["silver"] = new Color(-2, true, "10");
 function resistorValue(first, second, third, fourth, fifth) {
     
 }
+
+window.onload = function() {
+    var first  = document.getElementById("first");
+    var second = document.getElementById("second");
+    var third  = document.getElementById("third");
+    var fourth = document.getElementById("fourth");
+    for(var color in colors) {
+	var n = colors[color].value;	
+	var colorOption = document.createElement("option");
+	colorOption.appendChild(document.createTextNode(color));
+	if(n >= 0) {
+	    colorOption.setAttribute("value", n);
+	    first.appendChild(colorOption);
+	    second.appendChild(colorOption.cloneNode(true));
+	}
+    }
+};
