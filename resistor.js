@@ -12,7 +12,7 @@ function Color(value, isValidMultiplier, tolerance, hexCSSColor) {
 }
 
 var colors = {};
-colors["black"]  = new Color(0, true,  null,   "000");
+colors["black"]  = new Color(0, true,  null,   "000000");
 colors["brown"]  = new Color(1, true,  "1",    "664842");
 colors["red"]    = new Color(2, true,  "2",    "D92121");
 colors["orange"] = new Color(3, true,  null,   "FF9933");
@@ -21,9 +21,9 @@ colors["green"]  = new Color(5, true,  "0.5",  "66CC66");
 colors["blue"]   = new Color(6, true,  "0.25", "5C73E6");
 colors["violet"] = new Color(7, true,  "0.10", "C261F2");
 colors["grey"]   = new Color(8, false, "0.05", "939393");
-colors["white"]  = new Color(9, false, null,   "FFF");
+colors["white"]  = new Color(9, false, null,   "FFFFFF");
 colors["gold"]   = new Color(-1, true,  "5",   "CD9933");
-colors["silver"] = new Color(-2, true, "10",   "CCC");
+colors["silver"] = new Color(-2, true, "10",   "CCCCCC");
 
 function multiplier(x, p, n) {
     var xstr = "";
@@ -97,6 +97,17 @@ function toggleBands(n) {
     }    
 }
 
+function colorize(option, color) {
+    option.style.background = "#" + color;
+    var red = color.substring(0,2);
+    var green = color.substring(2,2);
+    var blue = color.substring(4,2);    
+    if(red+green+blue < 384) { //for contrast against dark backgrounds
+	console.log(color);
+	option.style.color = "#FFF";
+    }
+}
+
 window.onload = function() {
 
     document.getElementById("fivebands").onclick = function() { toggleBands(5) };
@@ -120,9 +131,11 @@ window.onload = function() {
 
     for(var color in colors) {
 	var n = colors[color].value;
-	var colorOption = document.createElement("option");
+	var colorOption = document.createElement("option");	
+	var hexColor = colors[color].hexCSSColor;
 	colorOption.appendChild(document.createTextNode(color));
 	colorOption.setAttribute("value", n);
+	colorize(colorOption, hexColor);
 	if(n >= 0) {
 	    first4.appendChild(colorOption);
 	    second4.appendChild(colorOption.cloneNode(true));
@@ -134,19 +147,19 @@ window.onload = function() {
 	    third4.appendChild(colorOption.cloneNode(true));
 	    fourth5.appendChild(colorOption.cloneNode(true));
 	}
-	var t = colors[color].tolerance;
 	var toleranceOption;
-	if(t) {
+	if(colors[color].tolerance) {
 	    toleranceOption = document.createElement("option");
 	    toleranceOption.appendChild(document.createTextNode(color));
 	    toleranceOption.setAttribute("value", colors[color].tolerance);
+	    colorize(toleranceOption, hexColor);
 	    fourth4.appendChild(toleranceOption.cloneNode(true));
 	    fifth5.appendChild(toleranceOption.cloneNode(true));
 	}
 	
 	colorBar = document.createElement("span");
 	colorBar.className = "colordecoration";
-	colorBar.style.background = "#"+colors[color].hexCSSColor;
+	colorBar.style.background = "#" + hexColor;
 	body[0].insertBefore(colorBar, title[0]);
     }
 };
