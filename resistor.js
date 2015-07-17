@@ -24,20 +24,46 @@ colors["white"]  = new Color(9, false, null);
 colors["gold"]   = new Color(-1, true,  "5");
 colors["silver"] = new Color(-2, true, "10");
 
+
+function multiplier(x) {
+    var y = Math.pow(10, x);
+    var xstr;
+    console.log(y);
+    if(y >= 0 && y < 1e3) {
+	xstr = y;
+    }
+    else if(y >= 1e3 && y < 1e6) {
+	xstr = y/1e3;
+	xstr += "K";
+    }
+    else if(y >= 1e6 && y < 1e9) {
+	xstr = y/1e6;
+	xstr += "M";
+    }
+    else {
+	return undefined;
+    }
+    xstr += "&#937;";
+    return xstr;
+}
+
 function resistorValue(n) {
     var bands = [];
+    var R;
     if(n === 4) {
 	bands[0] = document.getElementById("first4").value;
 	bands[1] = document.getElementById("second4").value;
-	bands[3] = document.getElementById("third4").value;
-	bands[4] = document.getElementById("fourth4").value;
+	bands[2] = document.getElementById("third4").value;
+	bands[3] = document.getElementById("fourth4").value;
+	R = bands[0]*10 + bands[1] + " " + multiplier(bands[2]);
     }
     else if(n === 5) {
 	bands[0] = document.getElementById("first5").value;
 	bands[1] = document.getElementById("second5").value;
-	bands[3] = document.getElementById("third5").value;
-	bands[4] = document.getElementById("fourth5").value;
-	bands[5] = document.getElementById("fifth5").value;
+	bands[2] = document.getElementById("third5").value;
+	bands[3] = document.getElementById("fourth5").value;
+	bands[4] = document.getElementById("fifth5").value;
+	R = bands[0]*100 + bands[1]*10 + bands[2] + multiplier(bands[3]);
     }
     else {
 	return undefined;
