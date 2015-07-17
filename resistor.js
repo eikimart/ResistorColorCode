@@ -79,11 +79,13 @@ function toggleBands(n) {
     if(n === 4) {
 	fourBand.style.display = "block";
 	fiveBand.style.display = "none";
+	resistorValue(4);
 	return true;
     }
     else if(n === 5) {
 	fourBand.style.display = "none";
 	fiveBand.style.display = "block";
+	resistorValue(5);
 	return true;
     }
     else {
@@ -103,20 +105,32 @@ function colorize(option, color) {
 
 window.onload = function() {
 
-    document.getElementById("fivebands").onclick = function() { toggleBands(5) };
-    document.getElementById("fourbands").onclick = function() { toggleBands(4) };
-    document.getElementById("submit4").onclick = function() { resistorValue(4) };
-    document.getElementById("submit5").onclick = function() { resistorValue(5) };
+    $fiveradio = document.getElementById("fivebands");
+    $fiveradio.onclick = function() { toggleBands(5) };
+    $fourradio = document.getElementById("fourbands");
+    $fourradio.onclick = function() { toggleBands(4) };
 
+    $fourradio.checked = true;
+    toggleBands(4);
+    
     var first4  = document.getElementById("first4");
+    first4.onchange = function() { resistorValue(4) };
     var second4 = document.getElementById("second4");
+    second4.onchange = function() { resistorValue(4) };
     var third4  = document.getElementById("third4");
+    third4.onchange = function() { resistorValue(4) };
     var fourth4 = document.getElementById("fourth4");
+    fourth4.onchange = function() { resistorValue(4) };
     var first5  = document.getElementById("first5");
+    first5.onchange = function() { resistorValue(5) };
     var second5 = document.getElementById("second5");
+    second5.onchange = function() { resistorValue(5) };
     var third5  = document.getElementById("third5");
+    third5.onchange = function() { resistorValue(5) };
     var fourth5 = document.getElementById("fourth5");
+    fourth5.onchange = function() { resistorValue(5) };
     var fifth5  = document.getElementById("fifth5");
+    fifth5.onchange = function() { resistorValue(5) };
     
     var body = document.getElementsByTagName("body");    
     var colorBar;
