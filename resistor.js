@@ -12,24 +12,26 @@ function Color(value, isValidMultiplier, tolerance, hexCSSColor) {
 }
 
 var colors = {};
-colors["black"]  = new Color(0, true,  null,   "000000");
-colors["brown"]  = new Color(1, true,  "1",    "664842");
-colors["red"]    = new Color(2, true,  "2",    "D92121");
-colors["orange"] = new Color(3, true,  null,   "FF9933");
-colors["yellow"] = new Color(4, true,  null,   "F2DF0D");
-colors["green"]  = new Color(5, true,  "0.5",  "66CC66");
-colors["blue"]   = new Color(6, true,  "0.25", "5C73E6");
-colors["violet"] = new Color(7, true,  "0.10", "C261F2");
-colors["grey"]   = new Color(8, false, "0.05", "939393");
-colors["white"]  = new Color(9, false, null,   "FFFFFF");
-colors["gold"]   = new Color(-1, true,  "5",   "CD9933");
-colors["silver"] = new Color(-2, true, "10",   "CCCCCC");
+colors["black"]  = new Color(0,  true,  null,   "000000");
+colors["brown"]  = new Color(1,  true,  "1",    "664842");
+colors["red"]    = new Color(2,  true,  "2",    "D92121");
+colors["orange"] = new Color(3,  true,  null,   "FF9933");
+colors["yellow"] = new Color(4,  true,  null,   "F2DF0D");
+colors["green"]  = new Color(5,  true,  "0.5",  "66CC66");
+colors["blue"]   = new Color(6,  true,  "0.25", "5C73E6");
+colors["violet"] = new Color(7,  true,  "0.10", "C261F2");
+colors["grey"]   = new Color(8,  false, "0.05", "939393");
+colors["white"]  = new Color(9,  false, null,   "FFFFFF");
+colors["gold"]   = new Color(-1, true,  "5",    "CD9933");
+colors["silver"] = new Color(-2, true,  "10",   "CCCCCC");
 
 function multiplier(x, p, n) {
     var xstr = "";
     x = x * Math.pow(10, p);
+    console.log("x = " + x);
     if(x >= 0 && x < 1e3) {
-	xstr = x.toPrecision(n);
+	xstr = x.toPrecision(n)/1;
+	console.log(xstr);
     }
     else if(x >= 1e3 && x < 1e6) {
 	xstr = x.toPrecision(n)/1e3 + "K";
