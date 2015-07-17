@@ -90,7 +90,6 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 3.42857em;
   line-height: 1em;
-  margin-top: 0.5em;
   margin-bottom: 0.5em; }
 
 h2 {
@@ -235,5 +234,12 @@ label:after {
       text-align: center; }
       #bandselection ul li input {
         margin-bottom: 0; }
+
+.colordecoration {
+  width: 8.333%;
+  float: left;
+  height: 1em;
+  margin-bottom: 2em;
+  margin-top: 0; }
 
 /*# sourceMappingURL=resistor.css.map */

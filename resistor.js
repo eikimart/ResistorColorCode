@@ -4,26 +4,26 @@
  * July 10, 2015                                                                  *
  *--------------------------------------------------------------------------------*/
 
-function Color(value, isValidMultiplier, tolerance) {
+function Color(value, isValidMultiplier, tolerance, hexCSSColor) {
     this.value = value;
     this.isValidMultiplier = isValidMultiplier;
     this.tolerance = tolerance;
+    this.hexCSSColor = hexCSSColor;
 }
 
 var colors = {};
-colors["black"]  = new Color(0, true,  null);
-colors["brown"]  = new Color(1, true,  "1");
-colors["red"]    = new Color(2, true,  "2");
-colors["orange"] = new Color(3, true,  null);
-colors["yellow"] = new Color(4, true,  null);
-colors["green"]  = new Color(5, true,  "0.5");
-colors["blue"]   = new Color(6, true,  "0.25");
-colors["violet"] = new Color(7, true,  "0.10");
-colors["grey"]   = new Color(8, false, "0.05");
-colors["white"]  = new Color(9, false, null);
-colors["gold"]   = new Color(-1, true,  "5");
-colors["silver"] = new Color(-2, true, "10");
-
+colors["black"]  = new Color(0, true,  null,   "000");
+colors["brown"]  = new Color(1, true,  "1",    "664842");
+colors["red"]    = new Color(2, true,  "2",    "D92121");
+colors["orange"] = new Color(3, true,  null,   "FF9933");
+colors["yellow"] = new Color(4, true,  null,   "F2DF0D");
+colors["green"]  = new Color(5, true,  "0.5",  "66CC66");
+colors["blue"]   = new Color(6, true,  "0.25", "5C73E6");
+colors["violet"] = new Color(7, true,  "0.10", "C261F2");
+colors["grey"]   = new Color(8, false, "0.05", "939393");
+colors["white"]  = new Color(9, false, null,   "FFF");
+colors["gold"]   = new Color(-1, true,  "5",   "CD9933");
+colors["silver"] = new Color(-2, true, "10",   "CCC");
 
 function multiplier(x, p, n) {
     var xstr = "";
@@ -113,6 +113,10 @@ window.onload = function() {
     var third5  = document.getElementById("third5");
     var fourth5 = document.getElementById("fourth5");
     var fifth5  = document.getElementById("fifth5");
+    
+    var body = document.getElementsByTagName("body");    
+    var colorBar;
+    var title = document.getElementsByTagName("h1");
 
     for(var color in colors) {
 	var n = colors[color].value;
@@ -139,5 +143,10 @@ window.onload = function() {
 	    fourth4.appendChild(toleranceOption.cloneNode(true));
 	    fifth5.appendChild(toleranceOption.cloneNode(true));
 	}
+	
+	colorBar = document.createElement("span");
+	colorBar.className = "colordecoration";
+	colorBar.style.background = "#"+colors[color].hexCSSColor;
+	body[0].insertBefore(colorBar, title[0]);
     }
 };

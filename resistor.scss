@@ -43,7 +43,7 @@ h1, h2, h3, h4 {
 
 h1 {
     @include baseline(48);
-    @include baselineMargins(48);
+    @include botMargins(1, 48);
 }
 
 h2 {
@@ -203,4 +203,12 @@ label:after {
 	    }
 	}
     }
+}
+
+.colordecoration {
+    width:8.333%;
+    float:left;
+    height:1em;
+    margin-bottom: 2em;
+    margin-top: 0;
 }
