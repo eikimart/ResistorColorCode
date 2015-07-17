@@ -211,22 +211,25 @@ label:after {
 #fiveband {
   display: none; }
 
-#bandselection ul {
-  padding: 0;
+#bandselection {
+  border-bottom: dashed 1px #AAA;
   margin-bottom: 1.71429em; }
-  #bandselection ul:after {
-    content: ".";
-    display: block;
-    height: 0px;
-    clear: both;
-    visibility: hidden; }
-  #bandselection ul li {
-    width: 50%;
-    list-style: none;
-    margin: 0;
-    float: left;
-    text-align: center; }
-    #bandselection ul li input {
-      margin-bottom: 0; }
+  #bandselection ul {
+    padding: 0;
+    margin-bottom: 1.71429em; }
+    #bandselection ul:after {
+      content: ".";
+      display: block;
+      height: 0px;
+      clear: both;
+      visibility: hidden; }
+    #bandselection ul li {
+      width: 50%;
+      list-style: none;
+      margin: 0;
+      float: left;
+      text-align: center; }
+      #bandselection ul li input {
+        margin-bottom: 0; }
 
 /*# sourceMappingURL=resistor.css.map */

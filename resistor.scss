@@ -182,6 +182,8 @@ label:after {
 }
 
 #bandselection {
+    border-bottom: dashed 1px #AAA;
+    @include botMargins(1, 14);
     ul {
 	padding: 0;
 	@include botMargins(1, 14);

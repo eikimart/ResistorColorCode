@@ -48,21 +48,44 @@ function toggleBands(n) {
 }
 
 window.onload = function() {
+
     document.getElementById("fivebands").onclick = function() { toggleBands(5) };
     document.getElementById("fourbands").onclick = function() { toggleBands(4) };
 
-    var first  = document.getElementById("first");
-    var second = document.getElementById("second");
-    var third  = document.getElementById("third");
-    var fourth = document.getElementById("fourth");
+    var first4  = document.getElementById("first4");
+    var second4 = document.getElementById("second4");
+    var third4  = document.getElementById("third4");
+    var fourth4 = document.getElementById("fourth4");
+    var first5  = document.getElementById("first5");
+    var second5 = document.getElementById("second5");
+    var third5  = document.getElementById("third5");
+    var fourth5 = document.getElementById("fourth5");
+    var fifth5  = document.getElementById("fifth5");
+
     for(var color in colors) {
-	var n = colors[color].value;	
+	var n = colors[color].value;
 	var colorOption = document.createElement("option");
 	colorOption.appendChild(document.createTextNode(color));
+	colorOption.setAttribute("value", n);
 	if(n >= 0) {
-	    colorOption.setAttribute("value", n);
-	    first.appendChild(colorOption);
-	    second.appendChild(colorOption.cloneNode(true));
+	    first4.appendChild(colorOption);
+	    second4.appendChild(colorOption.cloneNode(true));
+	    first5.appendChild(colorOption.cloneNode(true));
+	    second5.appendChild(colorOption.cloneNode(true));
+	    third5.appendChild(colorOption.cloneNode(true));	    
+	}
+	if(colors[color].isValidMultiplier) {
+	    third4.appendChild(colorOption.cloneNode(true));
+	    fourth5.appendChild(colorOption.cloneNode(true));
+	}
+	var t = colors[color].tolerance;
+	var toleranceOption;
+	if(t) {
+	    toleranceOption = document.createElement("option");
+	    toleranceOption.appendChild(document.createTextNode(color));
+	    toleranceOption.setAttribute("value", colors[color].tolerance);
+	    fourth4.appendChild(toleranceOption.cloneNode(true));
+	    fifth5.appendChild(toleranceOption.cloneNode(true));
 	}
     }
 };
