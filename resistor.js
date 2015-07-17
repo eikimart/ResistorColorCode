@@ -29,12 +29,9 @@ function multiplier(x, p, n) {
     var xstr = "";
     x = x * Math.pow(10, p);
     if(x >= 0 && x < 1e3) {
-	console.log("x = " + x);
 	xstr = x.toPrecision(n);
-	console.log("xstr = " + xstr);
     }
     else if(x >= 1e3 && x < 1e6) {
-	console.log("x = " + x);
 	xstr = x.toPrecision(n)/1e3 + "K";
     }
     else if(x >= 1e6 && x < 1e9) {
@@ -46,7 +43,6 @@ function multiplier(x, p, n) {
     else {
 	return undefined;
     }
-    console.log("xstr = " + typeof(xstr));
     return xstr;
 }
 
@@ -71,7 +67,6 @@ function resistorValue(n) {
     else {
 	return undefined;
     }
-    console.log(r);
     var valueDisplay = document.getElementById("resistorValue").childNodes[0];
     valueDisplay.nodeValue = "";
     valueDisplay.nodeValue = multiplier(r, power, n-2) + String.fromCharCode(937) + " " + 
@@ -81,7 +76,6 @@ function resistorValue(n) {
 function toggleBands(n) {
     var fourBand = document.getElementById("fourband");
     var fiveBand = document.getElementById("fiveband");
-    console.log("toggled, "+n);
     if(n === 4) {
 	fourBand.style.display = "block";
 	fiveBand.style.display = "none";
@@ -103,7 +97,6 @@ function colorize(option, color) {
     var green = color.substring(2,2);
     var blue = color.substring(4,2);    
     if(red+green+blue < 384) { //for contrast against dark backgrounds
-	console.log(color);
 	option.style.color = "#FFF";
     }
 }
