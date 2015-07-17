@@ -234,6 +234,8 @@ label:after {
       text-align: center; }
       #bandselection ul li input {
         margin-bottom: 0; }
+  #bandselection input {
+    background: none; }
 
 .colordecoration {
   width: 8.333%;
