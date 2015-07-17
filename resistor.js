@@ -24,8 +24,24 @@ colors["white"]  = new Color(9, false, null);
 colors["gold"]   = new Color(-1, true,  "5");
 colors["silver"] = new Color(-2, true, "10");
 
-function resistorValue(first, second, third, fourth, fifth) {
-    
+function resistorValue(n) {
+    var bands = [];
+    if(n === 4) {
+	bands[0] = document.getElementById("first4").value;
+	bands[1] = document.getElementById("second4").value;
+	bands[3] = document.getElementById("third4").value;
+	bands[4] = document.getElementById("fourth4").value;
+    }
+    else if(n === 5) {
+	bands[0] = document.getElementById("first5").value;
+	bands[1] = document.getElementById("second5").value;
+	bands[3] = document.getElementById("third5").value;
+	bands[4] = document.getElementById("fourth5").value;
+	bands[5] = document.getElementById("fifth5").value;
+    }
+    else {
+	return undefined;
+    }
 }
 
 function toggleBands(n) {
@@ -51,6 +67,8 @@ window.onload = function() {
 
     document.getElementById("fivebands").onclick = function() { toggleBands(5) };
     document.getElementById("fourbands").onclick = function() { toggleBands(4) };
+    document.getElementById("submit4").onclick = function() { resistorValue(4) };
+    document.getElementById("submit5").onclick = function() { resistorValue(5) };
 
     var first4  = document.getElementById("first4");
     var second4 = document.getElementById("second4");

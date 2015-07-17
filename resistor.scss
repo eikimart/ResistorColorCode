@@ -175,6 +175,8 @@ label:after {
     @include topMargins(1, 14);
     padding-left: 0; padding-right: 0;
     width: widthOfCols(3);
+    text-align: center;
+    cursor: pointer;
 }
 
 #fiveband {

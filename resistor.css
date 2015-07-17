@@ -206,7 +206,9 @@ label:after {
   margin-top: 1.71429em;
   padding-left: 0;
   padding-right: 0;
-  width: 11.42857em; }
+  width: 11.42857em;
+  text-align: center;
+  cursor: pointer; }
 
 #fiveband {
   display: none; }
