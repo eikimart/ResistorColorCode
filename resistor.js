@@ -28,7 +28,29 @@ function resistorValue(first, second, third, fourth, fifth) {
     
 }
 
+function toggleBands(n) {
+    var fourBand = document.getElementById("fourband");
+    var fiveBand = document.getElementById("fiveband");
+    console.log("toggled, "+n);
+    if(n === 4) {
+	fourBand.style.display = "block";
+	fiveBand.style.display = "none";
+	return true;
+    }
+    else if(n === 5) {
+	fourBand.style.display = "none";
+	fiveBand.style.display = "block";
+	return true;
+    }
+    else {
+	return false;
+    }    
+}
+
 window.onload = function() {
+    document.getElementById("fivebands").onclick = function() { toggleBands(5) };
+    document.getElementById("fourbands").onclick = function() { toggleBands(4) };
+
     var first  = document.getElementById("first");
     var second = document.getElementById("second");
     var third  = document.getElementById("third");
