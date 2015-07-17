@@ -161,7 +161,8 @@ form {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 1em; }
+  padding: 1em;
+  width: 15.71429em; }
 
 .formlist {
   list-style: none;
@@ -179,7 +180,7 @@ input, select {
   font-size: 1em;
   line-height: 1.71429em;
   margin-bottom: 0.85714em;
-  width: 15.71429em;
+  width: 100%;
   border-radius: 3px;
   display: block;
   margin-left: auto;
@@ -191,7 +192,7 @@ label {
   padding: 0;
   line-height: 1.71429em;
   display: block;
-  width: 15.71429em;
+  width: 100%;
   margin-left: auto;
   margin-right: auto; }
 
@@ -209,5 +210,23 @@ label:after {
 
 #fiveband {
   display: none; }
+
+#bandselection ul {
+  padding: 0;
+  margin-bottom: 1.71429em; }
+  #bandselection ul:after {
+    content: ".";
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden; }
+  #bandselection ul li {
+    width: 50%;
+    list-style: none;
+    margin: 0;
+    float: left;
+    text-align: center; }
+    #bandselection ul li input {
+      margin-bottom: 0; }
 
 /*# sourceMappingURL=resistor.css.map */
