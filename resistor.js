@@ -25,52 +25,57 @@ colors["gold"]   = new Color(-1, true,  "5");
 colors["silver"] = new Color(-2, true, "10");
 
 
-function multiplier(x) {
-    var y = Math.pow(10, x);
-    var xstr;
-    console.log(y);
-    if(y >= 0 && y < 1e3) {
-	xstr = y;
+function multiplier(x, p, n) {
+    var xstr = "";
+    x = x * Math.pow(10, p);
+    if(x >= 0 && x < 1e3) {
+	console.log("x = " + x);
+	xstr = x.toPrecision(n);
+	console.log("xstr = " + xstr);
     }
-    else if(y >= 1e3 && y < 1e6) {
-	xstr = y/1e3;
-	xstr += "K";
+    else if(x >= 1e3 && x < 1e6) {
+	console.log("x = " + x);
+	xstr = x.toPrecision(n)/1e3 + "K";
     }
-    else if(y >= 1e6 && y < 1e9) {
-	xstr = y/1e6;
-	xstr += "M";
+    else if(x >= 1e6 && x < 1e9) {
+	xstr = x.toPrecision(n)/1e6 + "M";
+    }
+    else if(x >= 1e9 && x < 1e12) {
+	xstr = x.toPrecision(n)/1e9 + "G";
     }
     else {
 	return undefined;
     }
-    xstr += String.fromCharCode(937);
+    console.log("xstr = " + typeof(xstr));
     return xstr;
 }
 
 function resistorValue(n) {
     var bands = [];
-    var r;
+    var r, tolerance, power;
     if(n === 4) {
 	bands[0] = document.getElementById("first4").value;
 	bands[1] = document.getElementById("second4").value;
-	bands[2] = document.getElementById("third4").value;
-	bands[3] = document.getElementById("fourth4").value;
-	r = bands[0]*10 + bands[1] + " " + multiplier(bands[2]);	
+	power = document.getElementById("third4").value;
+	tolerance = document.getElementById("fourth4").value;
+	r = (bands[0]*10 + bands[1]*1);
     }
     else if(n === 5) {
 	bands[0] = document.getElementById("first5").value;
 	bands[1] = document.getElementById("second5").value;
 	bands[2] = document.getElementById("third5").value;
-	bands[3] = document.getElementById("fourth5").value;
-	bands[4] = document.getElementById("fifth5").value;
-	r = bands[0]*100 + bands[1]*10 + bands[2] + multiplier(bands[3]);
+	power = document.getElementById("fourth5").value;
+	tolerance = document.getElementById("fifth5").value;
+	r = (bands[0]*100 + bands[1]*10 + bands[2]*1);
     }
     else {
 	return undefined;
     }
+    console.log(r);
     var valueDisplay = document.getElementById("resistorValue").childNodes[0];
-    valueDisplay.nodeValue="";
-    valueDisplay.nodeValue=r;
+    valueDisplay.nodeValue = "";
+    valueDisplay.nodeValue = multiplier(r, power, n-2) + String.fromCharCode(937) + " " + 
+	String.fromCharCode(177) + tolerance + "%";
 }
 
 function toggleBands(n) {
