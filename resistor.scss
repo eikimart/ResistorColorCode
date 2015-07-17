@@ -127,6 +127,8 @@ form {
     margin-right: auto;
     padding: 1em;
     width: widthOfCols(4);
+    border-bottom: dashed 1px #AAA;
+    @include botMargins(1, 14);
 }
 
 .formlist {

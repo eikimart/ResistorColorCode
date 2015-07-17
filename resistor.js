@@ -43,19 +43,19 @@ function multiplier(x) {
     else {
 	return undefined;
     }
-    xstr += "&#937;";
+    xstr += String.fromCharCode(937);
     return xstr;
 }
 
 function resistorValue(n) {
     var bands = [];
-    var R;
+    var r;
     if(n === 4) {
 	bands[0] = document.getElementById("first4").value;
 	bands[1] = document.getElementById("second4").value;
 	bands[2] = document.getElementById("third4").value;
 	bands[3] = document.getElementById("fourth4").value;
-	R = bands[0]*10 + bands[1] + " " + multiplier(bands[2]);
+	r = bands[0]*10 + bands[1] + " " + multiplier(bands[2]);	
     }
     else if(n === 5) {
 	bands[0] = document.getElementById("first5").value;
@@ -63,11 +63,14 @@ function resistorValue(n) {
 	bands[2] = document.getElementById("third5").value;
 	bands[3] = document.getElementById("fourth5").value;
 	bands[4] = document.getElementById("fifth5").value;
-	R = bands[0]*100 + bands[1]*10 + bands[2] + multiplier(bands[3]);
+	r = bands[0]*100 + bands[1]*10 + bands[2] + multiplier(bands[3]);
     }
     else {
 	return undefined;
     }
+    var valueDisplay = document.getElementById("resistorValue").childNodes[0];
+    valueDisplay.nodeValue="";
+    valueDisplay.nodeValue=r;
 }
 
 function toggleBands(n) {
