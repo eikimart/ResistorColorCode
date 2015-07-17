@@ -28,9 +28,18 @@ html>body {
     font-size: $baseSize;
 }
 
-p, ul {
+ul {
     @include baseline(14);
     @include baselineMargins(14);
+}
+
+p {
+    @include baseline(12);
+    @include topMargins(4, 12);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: widthOfCols(8);
+    padding: 0 $alley 0 $alley;
 }
 
 h1, h2, h3, h4 {
@@ -212,6 +221,6 @@ label:after {
     width:8.333%;
     float:left;
     height:1em;
-    margin-bottom: 2em;
+    @include botMargins(2, 14);
     margin-top: 0;
 }
