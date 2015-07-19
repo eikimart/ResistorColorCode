@@ -78,13 +78,17 @@ function resistorValue(n) {
 function toggleBands(n) {
     var fourBand = document.getElementById("fourband");
     var fiveBand = document.getElementById("fiveband");
+    var fourRadio = document.getElementById("fourbands");
+    var fiveRadio = document.getElementById("fivebands");
     if(n === 4) {
+	fourRadio.checked = true;
 	fourBand.style.display = "block";
 	fiveBand.style.display = "none";
 	resistorValue(4);
 	return true;
     }
     else if(n === 5) {
+	fiveRadio.checked = true;
 	fourBand.style.display = "none";
 	fiveBand.style.display = "block";
 	resistorValue(5);
@@ -107,12 +111,11 @@ function colorize(option, color) {
 
 window.onload = function() {
 
-    $fiveradio = document.getElementById("fivebands");
+    $fiveradio = document.getElementById("lifivebands");
     $fiveradio.onclick = function() { toggleBands(5) };
-    $fourradio = document.getElementById("fourbands");
+    $fourradio = document.getElementById("lifourbands");
     $fourradio.onclick = function() { toggleBands(4) };
 
-    $fourradio.checked = true;
     toggleBands(4);
     
     var first4  = document.getElementById("first4");
