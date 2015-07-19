@@ -233,7 +233,8 @@ label:after {
       float: left;
       text-align: center; }
       #bandselection ul li input {
-        margin-bottom: 0; }
+        margin-bottom: 0;
+        cursor: pointer; }
   #bandselection input {
     background: none; }
 
